@@ -1,0 +1,59 @@
+﻿@model HPIMS_MVC_SignalR_Integrated.Models.ProjectServerMappingModel
+@{
+    ViewBag.Title = "Add Information";
+}
+
+<div class="container">
+    <br />
+    <h4 style="font-weight:600">Add Data:</h4>
+    <h5 style="font-style:italic;font-weight:300">Enter information in the field and click save to add data.</h5>
+    <hr />
+    <div style="text-align:right">
+        <a class="btn btn-outline-success" role="button" style="text-decoration:none" href="@Url.Action("ProjectServerMappingList","ProjectServerMapping")">
+            Back to List
+        </a>
+    </div>
+    <br />
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <div>
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <table class="table table-borderless">
+                <tr>
+                    <td style="font-weight:600">
+                        @Html.LabelFor(model => model.ServerId, htmlAttributes: new { @class = "control-label col-md-4" })
+                    </td>
+                    <td>
+                        @Html.DropDownListFor(model => model.ServerId, ViewBag.ServerData as SelectList, "Select", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.ServerId, "", new { @class = "text-danger" })
+                    </td>
+                </tr>
+                <tr>
+                    <td style="font-weight:600">
+                        @Html.LabelFor(model => model.ProjectId, htmlAttributes: new { @class = "control-label col-md-4" })
+                    </td>
+                    <td>
+                        @Html.DropDownListFor(model => model.ProjectId, ViewBag.ProjectName as SelectList, "Select", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.ProjectId, "", new { @class = "text-danger" })
+                    </td>
+                </tr>
+                <tr>
+                    <td style="font-weight:600">
+                        @Html.LabelFor(model => model.IsActive, htmlAttributes: new { @class = "control-label col-md-4" })
+                    </td>
+                    <td>
+                        @Html.EditorFor(model => model.IsActive)
+                    </td>
+                </tr>
+            </table>
+
+            <hr />
+            <input type="submit" value="Save" class="btn btn-outline-success btn-lg" />
+        </div>
+    }
+
+</div>
+<br />
+

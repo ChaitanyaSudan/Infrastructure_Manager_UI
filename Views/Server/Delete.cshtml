@@ -1,0 +1,24 @@
+﻿@model HPIMS_MVC_SignalR_Integrated.Models.ServerModel
+
+@{
+    ViewBag.Title = "Delete Data";
+}
+<div class="container">
+    <br />
+    <h4 style="font-weight:600">Delete Data:</h4>
+    <h5 style="font-style:italic;font-weight:300">Data will be permanently deleted. Would you like to continue?</h5>
+
+    <hr />
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color" style="text-align:right">
+            <input type="submit" value="Delete" class="btn btn-outline-danger" />
+            <a class="btn btn-outline-success" role="button" style="text-decoration:none" href="@Url.Action("ServerList","Server")">
+                Back to List
+            </a>
+        </div>
+    }
+    <br />
+</div>

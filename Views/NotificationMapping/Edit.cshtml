@@ -1,0 +1,100 @@
+﻿@model HPIMS_MVC_SignalR_Integrated.Models.NotificationMappingModel
+
+@{
+    ViewBag.Title = "Edit Data";
+}
+<div class="container">
+    <br />
+    <h4 style="font-weight:600">Edit Data:</h4>
+    <h5 style="font-style:italic;font-weight:300">Enter information to make changes.</h5>
+
+    <hr />
+    <div style="text-align:right">
+        <a class="btn btn-outline-success" role="button" style="text-decoration:none" href="@Url.Action("NotificationMappingList","NotificationMapping")">
+            Back to List
+        </a>
+    </div>
+    <br />
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <div>
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.Id)
+            <table class="table table-borderless">
+                <tr>
+                    <td style="font-weight:600">
+                        @Html.LabelFor(model => model.ServerId, htmlAttributes: new { @class = "control-label col-md-4" })
+                    </td>
+                    <td>
+                        @Html.EditorFor(model => model.ServerId, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.ServerId, "", new { @class = "text-danger" })
+                    </td>
+                </tr>
+                <tr>
+                    <td style="font-weight:600">
+                        @Html.LabelFor(model => model.ProjectId, htmlAttributes: new { @class = "control-label col-md-4" })
+                    </td>
+                    <td>
+                        @Html.EditorFor(model => model.ProjectId, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.ProjectId, "", new { @class = "text-danger" })
+                    </td>
+                </tr>
+                <tr>
+                    <td style="font-weight:600">
+                        @Html.LabelFor(model => model.NotificationId, htmlAttributes: new { @class = "control-label col-md-4" })
+                    </td>
+                    <td>
+                        @Html.EditorFor(model => model.NotificationId, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.NotificationId, "", new { @class = "text-danger" })
+                    </td>
+                </tr>
+
+                <tr>
+                    <td style="font-weight:600">
+                        @Html.LabelFor(model => model.ToAddress, htmlAttributes: new { @class = "control-label col-md-4" })
+                    </td>
+                    <td>
+                        @Html.EditorFor(model => model.ToAddress, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.ToAddress, "", new { @class = "text-danger" })
+                    </td>
+                </tr>
+                <tr>
+                    <td style="font-weight:600">
+                        @Html.LabelFor(model => model.CCAddress, htmlAttributes: new { @class = "control-label col-md-4" })
+                    </td>
+                    <td>
+                        @Html.EditorFor(model => model.CCAddress, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.CCAddress, "", new { @class = "text-danger" })
+                    </td>
+                </tr>
+                <tr>
+                    <td style="font-weight:600">
+                        @Html.LabelFor(model => model.BCCAddress, htmlAttributes: new { @class = "control-label col-md-4" })
+                    </td>
+                    <td>
+                        @Html.EditorFor(model => model.BCCAddress, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.BCCAddress, "", new { @class = "text-danger" })
+                    </td>
+                </tr>
+                <tr>
+                    <td style="font-weight:600">
+                        @Html.LabelFor(model => model.IsActive, htmlAttributes: new { @class = "control-label col-md-4" })
+                    </td>
+                    <td>
+                        @Html.EditorFor(model => model.IsActive)
+                    </td>
+                </tr>
+            </table>
+
+            <hr />
+            <input type="submit" value="Update Details" class="btn btn-outline-success btn-lg" />
+        </div>
+    }
+
+</div>
+<br />
+
+
+

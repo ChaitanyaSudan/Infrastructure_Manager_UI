@@ -1,0 +1,81 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap CSS -->
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Style CSS File-->
+    <link rel="stylesheet" href="~/Content/StyleSheet.css" />
+    <link rel="stylesheet" href="~/Content/StyleSheetButton.css" />
+    <link href="~/Content/StyleSheetPagination.css" rel="stylesheet" />
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="~/Images/Favicon/Logo.png" type="image/x-icon">
+    <!-- Title -->
+    <title> @ViewBag.Title </title>
+</head>
+<body>
+    <nav class="navbar expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <span class="navbar-text" style="font-weight:bold;color:ghostwhite;font-size:20px">
+                <a href="@Url.Action("Index","Home")" style="text-decoration:none;">
+                    <img src="~/Images/Icon/Home.png" alt="" width="40" height="40" class="d-inline-block align-text-center">
+                </a>
+                &nbsp; HP Infrastructure Management Studio
+            </span>
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel" style="width:25%;">
+                <div class="offcanvas-header bg-dark">
+                    <h3 class="offcanvas-title" id="offcanvasNavbarLabel" style="font-weight:500;color:ghostwhite">Contents</h3>
+                    <button type="button" class="btn-close btn-close-white text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body bg-dark">
+                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3" style="padding-left:25px;line-height:120%">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <span class="hover-links"><span style="font-size:20px;text-align:left">&#x27A4;</span>&nbsp;&nbsp;Configuration Settings</span>
+                            </a>
+                            <ul class="dropdown-menu bg-dark" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item bg-dark" href="@Url.Action("NotificationList","Notification")"> <span class="hover-links">&bull;&nbsp;&nbsp;Notification</span></a></li>
+                                <li><a class="dropdown-item bg-dark" href="@Url.Action("NotificationMappingList","NotificationMapping")"> <span class="hover-links">&bull;&nbsp;&nbsp;Notification Mapping</span></a></li>
+                                <li><hr class="dropdown-divider" style="color:seashell"></li>
+                                <li><a class="dropdown-item bg-dark" href="@Url.Action("ProjectList","Project")"> <span class="hover-links">&bull;&nbsp;&nbsp;Project</span></a></li>
+                                <li><a class="dropdown-item bg-dark" href="@Url.Action("ProjectServerMappingList","ProjectServerMapping")"> <span class="hover-links">&bull;&nbsp;&nbsp;Project Server Mapping</span></a></li>
+                                <li><hr class="dropdown-divider" style="color:seashell"></li>
+                                <li><a class="dropdown-item bg-dark" href="@Url.Action("ServerAppConfigurationList","ServerAppConfiguration")"> <span class="hover-links">&bull;&nbsp;&nbsp;Server Configuration</span></a></li>
+                                <li><hr class="dropdown-divider" style="color:seashell"></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("ServerList","Server")"><span class="hover-links"><span style="font-size:20px">&#x27A4;</span>&nbsp;&nbsp;Server List</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("AboutUs","Home")"><span class="hover-links"><span style="font-size:20px">&#x27A4;</span>&nbsp;&nbsp;About Us</span></a>
+                        </li>
+                    </ul>
+                    <div style="color:ghostwhite">
+                        <hr />
+                        <p style="font-style:italic">@DateTime.Now.DayOfWeek - @DateTime.Now.ToLongDateString(), India</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div>
+        @RenderBody()
+    </div>
+    <!-- Javascript Bundle-->
+    <script src="~/Scripts/jquery-3.4.1.js"></script>
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+    <script src="~/Scripts/bootstrap.bundle.min.js"></script>
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>

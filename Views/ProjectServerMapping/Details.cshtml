@@ -1,0 +1,70 @@
+﻿@model HPIMS_MVC_SignalR_Integrated.Models.ProjectServerMappingModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div class="container">
+    <br />
+    <h4 style="font-weight:600">Project Server Mapping Details:</h4>
+    <h5 style="font-style:italic;font-weight:300">Click on the Edit button to make changes.</h5>
+    <hr />
+    <div style="text-align:right">
+        <a class="btn btn-outline-warning" role="button" style="text-decoration:none" href="@Url.Action("Edit","ProjectServerMapping", new {id = Model.Id})">
+            Edit
+        </a>
+        <a class="btn btn-outline-success" role="button" style="text-decoration:none" href="@Url.Action("ProjectServerMappingList","ProjectServerMapping")">
+            Back to List
+        </a>
+    </div>
+    <br />
+
+    <div>
+        <table class="table table-bordered" style="text-align:center">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Id)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ServerId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ProjectId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.IsActive)
+                </th>
+            </tr>
+            <tr>
+
+                <td>
+                    @Html.DisplayFor(model => model.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.ServerId)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.ProjectId)
+                </td>
+                <td>
+
+                    @{
+                        if (Model.IsActive)
+                        {
+                            <img src="~/Images/Icon/Active - Green.png" height="20" width="20" />
+                        }
+                        else
+                        {
+                            <img src="~/Images/Icon/Active - Red.png" height="20" width="20" />
+                        }
+                    }
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+
+
+
+
